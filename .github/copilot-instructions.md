@@ -9,10 +9,10 @@
 ## Command Conventions
 
 - Prefer Bun commands:
-	- `bun install`
-	- `bun run dev`
-	- `bun run build`
-	- `bun run test`
+  - `bun install`
+  - `bun run dev`
+  - `bun run build`
+  - `bun run test`
 - Do not suggest `npm`, `pnpm`, or `yarn` unless explicitly requested.
 
 ## Code Style and Quality
@@ -62,5 +62,3 @@
 - Do not refactor unrelated areas.
 - If requirements are ambiguous, ask concise clarifying questions.
 - If a requested change affects architecture, propose 2–3 options with tradeoffs, then implement the selected one.
-
-

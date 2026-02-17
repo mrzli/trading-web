@@ -31,6 +31,8 @@
 - Avoid premature global state; introduce it only for truly shared cross-route concerns.
 - Memoize only when there is a clear render/perf reason.
 - Prefer controlled, typed props and clear component contracts.
+- Use tailwindcss for styling; avoid custom CSS when possible.
+- Use non-default exports for components and hooks to improve tree-shaking and readability.
 
 ## Vite Guidelines
 

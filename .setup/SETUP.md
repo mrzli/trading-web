@@ -53,10 +53,10 @@ This follows common CLI/man-style convention: replace `<placeholder>` with your 
   - Replace any placeholders in those files with the actual values (e.g. `<project-name>` with the project name).
   - In any future steps, do not edit `.vscode/settings.json` or `.prettierrc` files, as they are already set up with the correct configuration.
 - Install dependencies.
-- Remove most of the components and styles.
-  - Use `##-setup-app.py` for this.
 - Add linting and formatting.
   - Use `##-setup-linting.py` for this.
+- Remove most of the components and styles.
+  - Use `##-setup-app.py` for this.
 - Add React Router.
   - Use `##-setup-react-router.py` for this.
 - Add Tailwind.

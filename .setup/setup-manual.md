@@ -96,6 +96,7 @@
               </div>
             );
           }
+  - Run `bun run format` to format the updated files.
   - Commit the changes with a message like "cleanup basic app code".
 - Setup basic routing:
   - Add react-router dependency with `bun add react-router`.
@@ -186,6 +187,7 @@
         );
       };
       ```
+  - Run `bun run format` to format the updated files.
   - Commit the changes with a message like "setup basic routing".
 - Setup 'examples' subpages:
   - Create `src/app/examples/` directory.
@@ -202,5 +204,6 @@
     - Add `src/app/examples/about-page.tsx` as `about` route under `examples`.
   - Update `App` to have link to `examples` page instead of the previous root `about` page.
   - Update `ExamplesPage` to have almost identical routing as `App`, with required path differences ('about' instead of 'examples' link).
+  - Run `bun run format` to format the updated files.
   - Commit the changes with a message like "setup examples subpages and routing".
 

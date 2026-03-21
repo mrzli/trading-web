@@ -174,10 +174,10 @@
         return (
           <div>
             <nav style={navStyle}>
-              <Link style={linkStyle} to='/'>
+              <Link style={linkStyle} to=''>
                 Home
               </Link>
-              <Link style={linkStyle} to='/about'>
+              <Link style={linkStyle} to='about'>
                 About
               </Link>
             </nav>
@@ -187,6 +187,22 @@
       };
       ```
   - Commit the changes with a message like "setup basic routing".
+- Setup 'examples' subpages:
+  - Create `src/app/examples/` directory.
+  - Create stub pages under this dir:
+    - `examples-page.tsx`.
+    - `home-page.tsx`.
+    - `about-page.tsx`.
+  - Initially, all should just return the simple `div` as before.
+  - Remove the `src/app/about-page.tsx` file.
+  - Update `src/routing/router.tsx` file:
+    - Remove the `about` route from the root level.
+    - Add `examples` route as child of root route, and have it have children.
+    - Add `src/app/examples/home-page.tsx` as index route of `examples`.
+    - Add `src/app/examples/about-page.tsx` as `about` route under `examples`.
+  - Update `App` to have link to `examples` page instead of the previous root `about` page.
+  - Update `ExamplesPage` to have almost identical routing as `App`, with required path differences ('about' instead of 'examples' link).
+  - Commit the changes with a message like "setup examples subpages and routing".
 
 
 

@@ -12,15 +12,15 @@ const linkStyle: CSSProperties = {
   color: '#2563eb',
 };
 
-export const App: FC = () => {
+export const ExamplesPage: FC = () => {
   return (
     <div>
       <nav style={navStyle}>
         <Link style={linkStyle} to=''>
           Home
         </Link>
-        <Link style={linkStyle} to='examples'>
-          Examples
+        <Link style={linkStyle} to='about'>
+          About
         </Link>
       </nav>
       <Outlet />

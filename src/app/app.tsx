@@ -1,4 +1,4 @@
-import type { CSSProperties } from 'react';
+import type { CSSProperties, FC } from 'react';
 
 import viteLogo from '/vite.svg';
 
@@ -14,7 +14,7 @@ const imageStyle: CSSProperties = {
   marginTop: '1rem',
 };
 
-export function App() {
+export const App: FC = () => {
   return (
     <div>
       <h1>template-react</h1>
@@ -25,4 +25,4 @@ export function App() {
       </div>
     </div>
   );
-}
+};

@@ -3,6 +3,8 @@ import { createBrowserRouter } from 'react-router';
 import { App } from '../app/app';
 import { AboutPage } from '../app/examples/about-page';
 import { ExamplesPage } from '../app/examples/examples-page';
+import { loader } from '../app/examples/loader/loader';
+import { LoaderPage } from '../app/examples/loader/loader-page';
 import { HomePage } from '../app/home-page';
 
 export const router = createBrowserRouter([
@@ -25,6 +27,11 @@ export const router = createBrowserRouter([
           {
             path: 'about',
             element: <AboutPage />,
+          },
+          {
+            path: 'loader',
+            element: <LoaderPage />,
+            loader: loader,
           },
         ],
       },

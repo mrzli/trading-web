@@ -22,6 +22,9 @@ export const ExamplesPage: FC = () => {
         <Link style={linkStyle} to='about'>
           About
         </Link>
+        <Link style={linkStyle} to='loader'>
+          Loader
+        </Link>
       </nav>
       <Outlet />
     </div>

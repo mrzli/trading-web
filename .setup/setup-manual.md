@@ -195,7 +195,7 @@
     - `examples-page.tsx`.
     - `home-page.tsx`.
     - `about-page.tsx`.
-  - Initially, all should just return the simple `div` as before.
+  - Initially, all should just return the simple `div` as described above.
   - Remove the `src/app/about-page.tsx` file.
   - Update `src/routing/router.tsx` file:
     - Remove the `about` route from the root level.
@@ -206,4 +206,55 @@
   - Update `ExamplesPage` to have almost identical routing as `App`, with required path differences ('about' instead of 'examples' link).
   - Run `bun run format` to format the updated files.
   - Commit the changes with a message like "setup examples subpages and routing".
+- Setup a react-router loader example:
+  - Create `loader` directory under `src/app/examples/`.
+  - Create `loader-page.tsx` under that directory, with the same stub content as described above.
+  - Update `router.tsx`, add a route for `loader` page under `examples` route.
+  - Update `ExamplesPage` to have a link to `loader` page.
+  - Add new file called `loader.ts` under `examples/loading/` directory.
+    - Add a lambda function:
+      - Variable name: `loader`.
+      - It should be an async function, and it should return a promise.
+      - Promise resolves after 500ms.
+      - Returns a string `'resolved data'`.
+      - Example code:
+        ```ts
+        export const loader = async () => {
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              resolve('resolved data');
+            }, 200);
+          });
+        };
+        ```
+  - Add the loader to the `loader` route in `router.tsx`:
+    ```tsx
+    {
+      path: 'loader',
+      element: <LoaderPage />,
+      loader: loader,
+    }
+    ```
+  - Update `LoaderPage` to use loader data:
+    - Add line: `const data = useLoaderData<typeof loader>();`
+    - Display the data in a page, in a `div` for example.
+    - Code example:
+      ```tsx
+      import type { FC } from 'react';
+      import { useLoaderData } from 'react-router';
 
+      import { loader } from './loader';
+
+      export const LoaderPage: FC = () => {
+        const data = useLoaderData<typeof loader>();
+
+        return (
+          <div>
+            <div>loader-page</div>
+            <div>{data}</div>
+          </div>
+        );
+      };
+      ```
+  - Run `bun run format` to format the updated files.
+  - Commit the changes with a message like "setup react-router loader example".

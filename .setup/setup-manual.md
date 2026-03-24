@@ -258,3 +258,20 @@
       ```
   - Run `bun run format` to format the updated files.
   - Commit the changes with a message like "setup react-router loader example".
+- Setup tailwind:
+  - Install dependencies:
+    - `bun add -d tailwindcss @tailwindcss/vite prettier-plugin-tailwindcss`
+  - Update prettier config, add:
+    ```json
+    "plugins": ["prettier-plugin-tailwindcss"]
+    ```
+  - Update `vite.config.ts`:
+    - Add import: `import tailwindcss from '@tailwindcss/vite';`
+    - Add to plugins array: `tailwindcss()`
+  - Update `index.css`:
+    - Add `@import "tailwindcss";`
+  - Add example for tailwind usage:
+    - Add stub `app/examples/tailwind-page.tsx`.
+    - Add some tailwind classes to the `div`, for example: `text-2xl text-blue-500 bg-orange-200`.
+  - Add route to `router.tsx`.
+  - Add link to `ExamplesPage`.

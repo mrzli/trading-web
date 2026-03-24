@@ -275,3 +275,5 @@
     - Add some tailwind classes to the `div`, for example: `text-2xl text-blue-500 bg-orange-200`.
   - Add route to `router.tsx`.
   - Add link to `ExamplesPage`.
+  - Run `bun run format` to format the updated files.
+  - Commit the changes with a message like "setup tailwind and example page".

@@ -5,6 +5,7 @@ import { AboutPage } from '../app/examples/about-page';
 import { ExamplesPage } from '../app/examples/examples-page';
 import { loader } from '../app/examples/loader/loader';
 import { LoaderPage } from '../app/examples/loader/loader-page';
+import { TailwindPage } from '../app/examples/tailwind-page';
 import { HomePage } from '../app/home-page';
 
 export const router = createBrowserRouter([
@@ -32,6 +33,10 @@ export const router = createBrowserRouter([
             path: 'loader',
             element: <LoaderPage />,
             loader: loader,
+          },
+          {
+            path: 'tailwind',
+            element: <TailwindPage />,
           },
         ],
       },

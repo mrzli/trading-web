@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router';
 
 import { App } from '../app/app';
+import { ChartPage } from '../app/chart/chart-page';
 import { AboutPage } from '../app/examples/about-page';
 import { ExamplesPage } from '../app/examples/examples-page';
 import { loader } from '../app/examples/loader/loader';
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
             element: <TailwindPage />,
           },
         ],
+      },
+      {
+        path: 'chart',
+        element: <ChartPage />,
       },
     ],
   },

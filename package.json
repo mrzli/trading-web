@@ -13,6 +13,7 @@
     "format": "bun run pretty && bun run lint:fix"
   },
   "dependencies": {
+    "@gmjs/trading-chart": "link:@gmjs/trading-chart",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-router": "^7.13.1"

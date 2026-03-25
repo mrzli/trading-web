@@ -22,6 +22,9 @@ export const App: FC = () => {
         <Link style={linkStyle} to='examples'>
           Examples
         </Link>
+        <Link style={linkStyle} to='chart'>
+          Chart
+        </Link>
       </nav>
       <Outlet />
     </div>

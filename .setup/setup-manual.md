@@ -258,6 +258,53 @@
       ```
   - Run `bun run format` to format the updated files.
   - Commit the changes with a message like "setup react-router loader example".
+- Setup app context:
+  - Setup app setup stuff, if not already done:
+    - Create `src/setup/` directory.
+    - Have an `index.ts` file that exports everything from any future subdectories.
+  - Create `context/` directory under `src/setup/`.
+  - Create files for context:
+    - Create value type for context in `app-context-value.ts`.
+      - Make it a very simple interface, with just `appName: string` field.
+      - Code:
+        ```ts
+        export interface AppContextValue {
+          readonly appName: string;
+        }
+        ```
+    - Create the `app-context.ts` file:
+      - `export const AppContext = createContext<AppContextValue | undefined>(undefined);`
+    - Create the provider component in `app-context-provider.tsx`:
+      - Create a functional component (as lambda) called `AppContextProvider`.
+      - Code:
+        ```tsx
+        export interface AppContextProviderProps {
+          readonly children: ReactNode;
+        }
+
+        export function AppContextProvider({ children }: AppContextProviderProps) {
+          const value: AppContextValue = {
+            appName: '<your app name here>',
+          };
+
+          return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
+        }
+        ```
+    - Create a custom app context hook file `use-app-context.ts`:
+      ```tsx
+      export const useAppContext = (): AppContextValue => {
+        const context = useContext(AppContext);
+        if (context === undefined) {
+          throw new Error('useAppContext must be used within an AppContextProvider');
+        }
+        return context;
+      };
+      ```
+    - Add an index file which exports everything from the context directory.
+  - Update `src/main.tsx` to wrap the app in the context provider.
+  - Add an example file for context, with the necessary route and links.
+  - Run `bun run format` to format the updated files.
+  - Commit the changes with a message like "setup app context and example page".
 - Setup tailwind:
   - Install dependencies:
     - `bun add -d tailwindcss @tailwindcss/vite prettier-plugin-tailwindcss`

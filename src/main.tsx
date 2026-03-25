@@ -5,9 +5,12 @@ import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router';
 
 import { router } from './routing/router';
+import { AppContextProvider } from './setup';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AppContextProvider>
+      <RouterProvider router={router} />
+    </AppContextProvider>
   </StrictMode>,
 );

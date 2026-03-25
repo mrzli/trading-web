@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router';
 import { App } from '../app/app';
 import { ChartPage } from '../app/chart/chart-page';
 import { AboutPage } from '../app/examples/about-page';
+import { ContextPage } from '../app/examples/context-page';
 import { ExamplesPage } from '../app/examples/examples-page';
 import { loader } from '../app/examples/loader/loader';
 import { LoaderPage } from '../app/examples/loader/loader-page';
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
           {
             path: 'tailwind',
             element: <TailwindPage />,
+          },
+          {
+            path: 'context',
+            element: <ContextPage />,
           },
         ],
       },

@@ -28,6 +28,9 @@ export const ExamplesPage: FC = () => {
         <Link style={linkStyle} to='tailwind'>
           Tailwind
         </Link>
+        <Link style={linkStyle} to='context'>
+          Context
+        </Link>
       </nav>
       <Outlet />
     </div>

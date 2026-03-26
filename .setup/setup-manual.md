@@ -258,10 +258,32 @@
       ```
   - Run `bun run format` to format the updated files.
   - Commit the changes with a message like "setup react-router loader example".
+- Update application setup:
+  - Create `src/setup/` directory.
+  - Have an `index.ts` file that exports everything from any future subdectories and files.
+  - Create a `run.tsx` file:
+    ```tsx
+    export const run = async () => {
+      const root = document.getElementById('root');
+
+      if (!root) {
+        throw new Error('Root element not found');
+      }
+
+      const content = (
+        <StrictMode>
+          <RouterProvider router={router} />
+        </StrictMode>
+      );
+
+      createRoot(root).render(content);
+    };
+    ```
+  - Update `index.ts` to export everything from `run.tsx`.
+  - Update `src/main.tsx` to import and call the `run` function.
+  - Run `bun run format` to format the updated files.
+  - Commit the changes with a message like "update application setup and entry point".
 - Setup app context:
-  - Setup app setup stuff, if not already done:
-    - Create `src/setup/` directory.
-    - Have an `index.ts` file that exports everything from any future subdectories.
   - Create `context/` directory under `src/setup/`.
   - Create files for context:
     - Create value type for context in `app-context-value.ts`.

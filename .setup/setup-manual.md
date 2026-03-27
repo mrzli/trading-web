@@ -301,16 +301,16 @@
       - Code:
         ```tsx
         export interface AppContextProviderProps {
+          readonly value: AppContextValue;
           readonly children: ReactNode;
         }
 
-        export function AppContextProvider({ children }: AppContextProviderProps) {
-          const value: AppContextValue = {
-            appName: '<your app name here>',
-          };
-
+        export const AppContextProvider: FC<AppContextProviderProps> = ({
+          value,
+          children,
+        }) => {
           return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
-        }
+        };
         ```
     - Create a custom app context hook file `use-app-context.ts`:
       ```tsx
@@ -323,7 +323,7 @@
       };
       ```
     - Add an index file which exports everything from the context directory.
-  - Update `src/main.tsx` to wrap the app in the context provider.
+  - Update `run.tsx` to wrap the app in the context provider.
   - Add an example file for context, with the necessary route and links.
   - Run `bun run format` to format the updated files.
   - Commit the changes with a message like "setup app context and example page".

@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router';
 import { App } from '../app/app';
 import { ChartPage } from '../app/chart/chart-page';
 import { AboutPage } from '../app/examples/about-page';
+import { ApiPage } from '../app/examples/api-page';
 import { ContextPage } from '../app/examples/context-page';
 import { ExamplesPage } from '../app/examples/examples-page';
 import { loader } from '../app/examples/loader/loader';
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
           {
             path: 'context',
             element: <ContextPage />,
+          },
+          {
+            path: 'api',
+            element: <ApiPage />,
           },
         ],
       },

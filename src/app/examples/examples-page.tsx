@@ -31,6 +31,9 @@ export const ExamplesPage: FC = () => {
         <Link style={linkStyle} to='context'>
           Context
         </Link>
+        <Link style={linkStyle} to='api'>
+          API
+        </Link>
       </nav>
       <Outlet />
     </div>

@@ -327,6 +327,19 @@
   - Add an example file for context, with the necessary route and links.
   - Run `bun run format` to format the updated files.
   - Commit the changes with a message like "setup app context and example page".
+- Setup app dependencies:
+  - Create `app-dependencies.ts` file under `src/setup/`.
+  - For now, just have a stub interface for dependencies, with no actual dependencies in it.
+    - Code:
+      ```ts
+      export interface AppDependencies {
+        // Add your app dependencies here
+      }
+      ```
+  - Export the dependencies interface in the `index.ts` file.
+  - Add `dependencies` field to context value, remember to initialize it.
+  - Run `bun run format` to format the updated files.
+  - Commit the changes with a message like "setup app dependencies in context".
 - Setup env:
   - Add `zod` dependency with `bun add zod` if not already added.
   - Create `env/` directory under `src/setup/`.
@@ -428,6 +441,64 @@
   - Display one of the env variables in the context example page.
   - Run `bun run format` to format the updated files.
   - Commit the changes with a message like "setup env handling and example page".
+- Setup app dependencies:
+  - Just create an empty dopendencies type and creator in `src/setup/app-dependencies.ts`:
+    ```ts
+    export interface AppDependencies {}
+
+    export const createAppDependencies = (env: AppEnv): AppDependencies => {
+      return {};
+    };
+    ```
+  - Add any `index.ts` entries if necessary.
+  - Add `dependencies` field to context value, remember to initialize it with the `createAppDependencies` function.
+  - Run `bun run format` to format the updated files.
+  - Commit the changes with a message like "setup app dependencies and example page".
+- Setup api stub:
+  - Create `src/api/` directory and `parts/` subdirectory under it.
+  - Create sub files:
+    - `api-config.ts`:
+      ```ts
+      export interface ApiConfig {
+        readonly backendBaseUrl: string;
+      }
+      ```
+    - `parts/example-api.ts`:
+      ```ts
+      export interface ExampleApi {
+        readonly offline: () => Promise<string>;
+      }
+
+      export const createExampleApi = (config: ApiConfig): ExampleApi => {
+        return {
+          offline: async () => {
+            return new Promise((resolve) => {
+              setTimeout(() => {
+                resolve(`This is an example response. Backend Base URL: ${config.backendBaseUrl}`);
+              }, 1000);
+            });
+          },
+        };
+      };
+      ```
+    - Create index files for `parts`.
+    - `app-api.ts`:
+      ```ts
+      export interface AppApi {
+        readonly example: ExampleApi;
+      }
+
+      export const createAppApi = (config: ApiConfig): AppApi => {
+        return {
+          example: createExampleApi(config),
+        };
+      };
+      ```
+    - Create index file for `api` that exports everything inside it.
+  - Update `app-dependencies.ts` to create the api and add it to the dependencies.
+  - Add example usage of `offline` api function in the context example page.
+  - Run `bun run format` to format the updated files.
+  - Commit the changes with a message like "setup api stub and example usage".
 - Setup tailwind:
   - Install dependencies:
     - `bun add -d tailwindcss @tailwindcss/vite prettier-plugin-tailwindcss`

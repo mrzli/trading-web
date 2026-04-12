@@ -6,6 +6,7 @@ import { AboutPage } from '../app/examples/about-page';
 import { ApiPage } from '../app/examples/api-page';
 import { ContextPage } from '../app/examples/context-page';
 import { ExamplesPage } from '../app/examples/examples-page';
+import { FormFromScratch } from '../app/examples/form-from-scratch/form-from-scratch';
 import { loader } from '../app/examples/loader/loader';
 import { LoaderPage } from '../app/examples/loader/loader-page';
 import { TailwindPage } from '../app/examples/tailwind-page';
@@ -48,6 +49,10 @@ export const router = createBrowserRouter([
           {
             path: 'api',
             element: <ApiPage />,
+          },
+          {
+            path: 'form-from-scratch',
+            element: <FormFromScratch />,
           },
         ],
       },

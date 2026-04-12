@@ -34,6 +34,9 @@ export const ExamplesPage: FC = () => {
         <Link style={linkStyle} to='api'>
           API
         </Link>
+        <Link style={linkStyle} to='form-from-scratch'>
+          Form From Scratch
+        </Link>
       </nav>
       <Outlet />
     </div>

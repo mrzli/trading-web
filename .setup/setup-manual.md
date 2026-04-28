@@ -48,13 +48,13 @@
   - Commit the changes with a message like "format project files".
 - Clean up basic app code:
   - CSS updates:
-    - Keep `index.css`.
+    - Keep `index.css`, but delete all its content.
     - Remove all other CSS files and their imports.
   - Image updates:
     - If either `src/assets/` or `public/` does not have any appropriate images, add some, or copy one from the other directory.
     - Remove all but one image from `src/assets/`.
     - Updates imports and uses accordingly. Imports are relative.
-    - Remove all but one image from `public/`. Possib
+    - Remove all but one image from `public/`.
     - Update imports and uses accordingly. Imports start with `/` and they are then relative to `public/`.
   - Update `App.tsx`:
     - Rename to `app.tsx` (lowercase).
@@ -84,7 +84,7 @@
             marginTop: '1rem',
           };
 
-          export function App() {
+          export const App: FC = () => {
             return (
               <div>
                 <h1>template-react</h1>
@@ -95,7 +95,7 @@
                 </div>
               </div>
             );
-          }
+          };
   - Run `bun run format` to format the updated files.
   - Commit the changes with a message like "cleanup basic app code".
 - Setup basic routing:
@@ -111,7 +111,7 @@
     - Use 'data mode'.
     - This is the skeleton:
       ```tsx
-      import { createBrowserRouter } from 'react-router-dom';
+      import { createBrowserRouter } from 'react-router';
 
       export const router = createBrowserRouter([]);
       ```
@@ -281,6 +281,7 @@
     ```
   - Update `index.ts` to export everything from `run.tsx`.
   - Update `src/main.tsx` to import and call the `run` function.
+    - It should contain nothing but call to run, import for `index.css` and import for the `run` function itself.
   - Run `bun run format` to format the updated files.
   - Commit the changes with a message like "update application setup and entry point".
 - Setup app context:
@@ -531,3 +532,32 @@
   - Add link to `ExamplesPage`.
   - Run `bun run format` to format the updated files.
   - Commit the changes with a message like "setup tailwind and example page".
+- Setup icons:
+  - Install dependencies:
+    - `bun add @iconify/react`
+  - Add example for icon usage:
+    - Add stub `app/examples/icons-page.tsx`.
+    - Add some icons to it:
+      - Import `import { Icon } from '@iconify/react';`
+      - Add these icons to the page:
+        ```tsx
+        <Icon icon='cif:hr' width='500' height='300' />
+        <Icon icon='mdi:linkedin' width='48' height='48' color='#0a66c2' />
+        <Icon icon='mdi:github' width='48' height='48' color='#181717' />
+        <Icon icon='mdi:stackoverflow' width='48' height='48' color='#f48024' />
+        ```
+  - Add route to `router.tsx`.
+  - Add link to `ExamplesPage`.
+  - Run `bun run format` to format the updated files.
+  - Commit the changes with a message like "setup icon library and example page".
+- Setup storybook:
+  - For reference, you can see what needs to be done by executing:
+    - `bun create storybook@latest --features docs`
+  - Install dependencies:
+    - `bun add -d @storybook/react @storybook/addon-essentials @storybook/builder-vite @storybook/addon-interactions`
+  - Initialize storybook with `npx storybook init --builder @storybook/builder-vite`.
+  - Add a sample story for `Button` component:
+    - Create `src/stories/Button.stories.tsx` file.
+    - Add a simple button component and a story for it.
+  - Run storybook with `bun run storybook`.
+  - Commit the changes with a message like "setup Storybook and add sample story".

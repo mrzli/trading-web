@@ -4,8 +4,8 @@ import { RouterProvider } from 'react-router';
 
 import { router } from '../routing/router';
 import { createAppDependencies } from './app-dependencies';
+import { appEnv } from './app-env';
 import { AppContextProvider, type AppContextValue } from './context';
-import { appEnv } from './env';
 
 export const run = async () => {
   const root = document.getElementById('root');
